@@ -10,7 +10,7 @@ using namespace std;
 
 class Book {
 public:
-    void Read(int user, int page) {
+    void Read(const int user, const int page) {
         if (user_to_page_count_.size() <= user) {
             user_to_page_count_.resize(user + 1);
         }
@@ -22,7 +22,7 @@ public:
         user_to_page_count_[user] = page;
         users_.insert(user);
     }
-    double Cheer(int user) {
+    double Cheer(const int user) {
         if (user_to_page_count_.size() <= user || user_to_page_count_.at(user) == 0)
             return 0;
         int page = user_to_page_count_.at(user);
@@ -45,7 +45,7 @@ int main() {
     Book book;
     int n;
     cin >> n;
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         string query_type;
         cin >> query_type;
         if (query_type == "READ"s) {
